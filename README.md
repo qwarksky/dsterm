@@ -22,11 +22,19 @@ The aim of this page is to provide a few lines of commands that can be used quic
 ```
   > sed -n '10,12p' snstitanic.csv 
 ```
-
+* Filter pattern "First":
+```
+  > sed -n '/First/p' snstitanic.csv  
+```
 ## Awk
 * Filter lines with number line : 
 ``` 
   > awk 'NR==5, NR==12  { print NR ":" $0}' snstitanic.csv   
+```
+
+* Filter pattern "First" in specific field:
+```
+  > awk -F','  '$10 ~ /First/ {print "Line " NR ":" $0}' snstitanic.csv  
 ```
 
 ### Documentation
