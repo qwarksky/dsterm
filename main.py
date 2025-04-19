@@ -1,5 +1,6 @@
 import pandas as pd
 import polars as pl
+import duckdb as db
 import seaborn as sns
 
 pl.Config.set_tbl_cols(-1)
@@ -75,8 +76,18 @@ if __name__ == "__main__":
 
     print("PANDAS PDINFO")
     print(df.pipe(pdinfo))
+    # print(df.info())
+    # print(df.describe())
 
     print("-----------------------------------------\n")
 
     print("POLARS PLINFO")
     print(pl.from_pandas(df).pipe(plinfo))
+    # print(pl.from_pandas(df).describe())
+
+    print("-----------------------------------------\n")
+
+    print("DUCKDB SUMMARIZE")
+    data = db.from_df(df)
+    print(db.query("SUMMARIZE data;").show(max_width=250))
+    # print(data.describe())
