@@ -2,6 +2,8 @@
 
 The aim of this page is to provide a few lines of commands that can be used quickly in the context of DataScience.
 
+
+
 ## Approach
 1. From Seaborn's Titanic dataset, we will export it to a CSV file (main.py)
 2. This CSV file will be our starting point. It simulates a dataset that we would have received in order to process it.
